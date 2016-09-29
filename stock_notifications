@@ -1,7 +1,5 @@
 #!/home/pi/.rvm/rubies/ruby-2.3.0/bin/ruby
 
-require 'stock_quote'
-
 twitter = { symbol: 'TWTR', down_price: 15, up_price: 25 }
 twilio = { symbol: 'TWLO', down_price: 62, up_price: 75 }
 bitcoin = { symbol: 'BTCUSD=X', down_price: 550, up_price: 700 }

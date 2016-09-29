@@ -1,5 +1,5 @@
 class StockInformation
-  require 'HTTParty'
+  require 'httparty'
 
   def initialize(symbol)
     @symbol = symbol
