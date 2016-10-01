@@ -24,5 +24,5 @@ begin
   end
 
 rescue => e
-  File.open('/home/pi/ruby_scripts/stock_notifications/stock_quote_errors.txt', 'a+') { |file| file.write("#{Time.now}: #{e.inspect}\n\n") }
+  File.open("#{__dir__}/stock_quote_errors.txt", 'a+') { |file| file.write("#{Time.now}: #{e.inspect}\n\n") }
 end
