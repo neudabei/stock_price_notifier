@@ -1,0 +1,7 @@
+# Ignore bundler config
+/.bundle
+
+# Ignore system files
+.DS_Store
+
+investment_watch_list.yml
