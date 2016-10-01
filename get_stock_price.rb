@@ -13,7 +13,10 @@ class StockInformation
   private
 
   def yahoo_response
+    tries ||= 3
     HTTParty.get(@base_uri)
+  rescue
+    retry unless (tries -= 1).zero?
   end
 
   def yahoo_response_body
