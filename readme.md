@@ -1,9 +1,9 @@
-# Stock price notifications
+# Stock price notifier
 
-A Ruby script to notify you when a stock is traded under or over a set price points. 
+A Ruby script to notify you when a stock is traded under or over set price points. 
 Price limits are set in the YAML file `investment_watch_list.yml`. 
 
-The [Yahoo Query API](http://query.yahooapis.com/) is used to get the latest prices. 
+The [Yahoo Query API](http://query.yahooapis.com/) is used to get the up to date information about stocks. 
 
 Errors resulting mainly from connection problems to the Yahoo API are stored in `stock_quote_errors.txt`. 
 
