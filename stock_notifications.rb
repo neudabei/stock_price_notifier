@@ -6,12 +6,12 @@ require_relative 'watch_list_reader'
 begin
   watch_list = WatchListReader.new
   investments = watch_list.watch_list
-  
+
   investments.each do |name, investment_info|
     symbol = investment_info["symbol"]
     down_price = investment_info["down_price"]
     up_price = investment_info["up_price"]
-  
+
     investment = StockInformation.new(symbol)
     last_trade_price = investment.last_trade_price
 

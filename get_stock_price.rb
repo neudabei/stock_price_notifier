@@ -7,7 +7,12 @@ class StockInformation
   end
 
   def last_trade_price
-    json_stock_information_quote["LastTradePriceOnly"].to_f
+    begin
+      json_stock_information_quote["LastTradePriceOnly"].to_f
+    rescue NoMethodError => e
+      File.open("#{__dir__}/stock_quote_errors.txt", 'a+') { |file| file.write("#{Time.now}: #{e.inspect} Couldn't parse the Json received. Probably because the API didn't return the correct object.\n\n") }
+      puts
+    end
   end
 
   private
@@ -20,7 +25,16 @@ class StockInformation
   end
 
   def yahoo_response_body
-    yahoo_response.body
+    response = nil
+
+    loop do
+      response = yahoo_response.body
+      if response != "{\"error\":{\"lang\":\"en-US\",\"description\":\"No definition found for Table yahoo.finance.quotes\"}}"
+        break
+      end
+    end
+
+    response
   end
 
   def json_stock_information
