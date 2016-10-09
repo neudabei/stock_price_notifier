@@ -25,16 +25,13 @@ class StockInformation
   end
 
   def yahoo_response_body
-    response = nil
-
     loop do
       response = yahoo_response.body
       if response != "{\"error\":{\"lang\":\"en-US\",\"description\":\"No definition found for Table yahoo.finance.quotes\"}}"
+        return response
         break
       end
     end
-
-    response
   end
 
   def json_stock_information
