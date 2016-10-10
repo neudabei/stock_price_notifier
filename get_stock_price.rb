@@ -11,7 +11,6 @@ class StockInformation
       json_stock_information_quote["LastTradePriceOnly"].to_f
     rescue NoMethodError => e
       File.open("#{__dir__}/stock_quote_errors.txt", 'a+') { |file| file.write("#{Time.now}: #{e.inspect} Couldn't parse the Json received. Probably because the API didn't return the correct object.\n\n") }
-      puts
     end
   end
 
